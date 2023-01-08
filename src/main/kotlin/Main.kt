@@ -2,6 +2,17 @@ import java.io.File
 
 fun main() {
     val separator = File.separator
+
+    val wordsSequence = "src${separator}words_sequence.txt"
+    var lengthOfLongestWord = 0
+    File(wordsSequence).forEachLine {
+        if (it.length > lengthOfLongestWord) lengthOfLongestWord = it.length
+    }
+
+    println(lengthOfLongestWord)
+
+    println()
+
     val fileName = "src${separator}reading.txt"
     val file = File(fileName)
     if (file.exists()) {
