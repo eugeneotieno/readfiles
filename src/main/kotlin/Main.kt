@@ -1,7 +1,8 @@
 import java.io.File
 
 fun main() {
-    val fileName = "src/reading.txt"
+    val separator = File.separator
+    val fileName = "src${separator}reading.txt"
     val file = File(fileName)
     if (file.exists()) {
         //read whole text
@@ -15,6 +16,11 @@ fun main() {
         for (line in lines) {
             println(line)
         }
+
+        println()
+
+        //for large files
+        File(fileName).forEachLine { println(it) }
 
     } else {
         println("File does not exist!")
